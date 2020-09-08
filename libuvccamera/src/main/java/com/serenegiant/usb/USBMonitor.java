@@ -88,10 +88,10 @@ public final class USBMonitor {
 		 */
 		public void onAttach(UsbDevice device);
 		/**
-		 * called when device dettach(after onDisconnect)
+		 * called when device detach(after onDisconnect)
 		 * @param device
 		 */
-		public void onDettach(UsbDevice device);
+		public void onDetach(UsbDevice device);
 		/**
 		 * called after device opend
 		 * @param device
@@ -500,7 +500,7 @@ public final class USBMonitor {
 						ctrlBlock.close();
 					}
 					mDeviceCounts = 0;
-					processDettach(device);
+					processDetach(device);
 				}
 			}
 		}
@@ -600,14 +600,14 @@ public final class USBMonitor {
 		}
 	}
 
-	private final void processDettach(final UsbDevice device) {
+	private final void processDetach(final UsbDevice device) {
 		if (destroyed) return;
-		if (DEBUG) Log.v(TAG, "processDettach:");
+		if (DEBUG) Log.v(TAG, "processDetach:");
 		if (mOnDeviceConnectListener != null) {
 			mAsyncHandler.post(new Runnable() {
 				@Override
 				public void run() {
-					mOnDeviceConnectListener.onDettach(device);
+					mOnDeviceConnectListener.onDetach(device);
 				}
 			});
 		}
