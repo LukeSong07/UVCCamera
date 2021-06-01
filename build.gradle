@@ -32,4 +32,11 @@ ext {
 	versionNameString = '1.0.0'
 	javaSourceCompatibility = JavaVersion.VERSION_1_8
 	javaTargetCompatibility = JavaVersion.VERSION_1_8
+
+	var = [
+
+			SupportV7 : "com.android.support:appcompat-v7:$supportLibVersion",
+			SupportV4 : "com.android.support:support-v4:$supportLibVersion",
+			SupportRecyclerviewV7 : "com.android.support:recyclerview-v7:$supportLibVersion"
+	]
 }
